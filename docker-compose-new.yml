@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  python:
+    container_name: python
+    build:
+      context: .
+      dockerfile: ./new/python/Dockerfile
+    tty: true
+    volumes:
+      - .:/backend
+
+  nodejs:
+    container_name: nodejs
+    build:
+      context: .
+      dockerfile: ./new/nodejs/Dockerfile
+    tty: true
+    volumes:
+      - .:/frontend
