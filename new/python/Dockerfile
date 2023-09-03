@@ -6,6 +6,6 @@ RUN pip install pipreqs
 
 WORKDIR /backend
 
-RUN pipreqs /backend
+RUN pipreqs /backend/
 
 

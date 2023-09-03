@@ -16,4 +16,4 @@ RUN npm run build
 # Copie le produit final de la 1ere étape (fichiers statique) sans les fichier de dépendance (node_modules)
 FROM nginx:stable-alpine
 COPY --from=build /app/frontend/build /usr/share/nginx/html
-CMD ["nginx", "-g", "deamon off;"]
+CMD ["nginx", "-g", "daemon off;"]

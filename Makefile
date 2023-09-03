@@ -7,6 +7,10 @@ PIP = ${EXEC} pip
 PYTHON = ${EXEC} python
 MANAGE = ${PYTHON} manage.py
 
+# Variables Modulable
+BACKEND = python
+FRONTEND = nodejs
+
 
 ## —— 🐳 Docker ——
 
@@ -49,17 +53,24 @@ pruneAll: ## Supprimer toutes les images
 
 ### -- Backend -- ##
 new-requirements:
-	$(DOCKER) exec -w /backend/backend python touch requirements.txt
+	$(DOCKER) exec -w /backend python touch requirements.txt
 
 up-requirements:
-	$(DOCKER) exec -w /backend/backend python pip freeze > requirements.txt
+	$(DOCKER) exec -w /backend python pip freeze > ./backend/requirements.txt
 
 new-django:
-	$(DOCKER) exec -w /backend python django-admin startproject backend
+	$(DOCKER) exec -w /backend python django-admin startproject server
+
+python.manage.py.runserver:
+	$(DOCKER) exec -w /backend/backend python python manage.py runserver
+
 
 ### -- Frontend -- ##
 new-react:
 	$(DOCKER) exec -w /frontend nodejs npx create-react-app frontend
+
+npm.start:
+	$(DOCKER) exec -w /frontend/frontend nodejs npm start
 
 
 ## —— 🛠️  Others ——

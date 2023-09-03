@@ -9,7 +9,7 @@ services:
       dockerfile: ./new/python/Dockerfile
     tty: true
     volumes:
-      - .:/backend
+      - ./backend:/backend
 
   nodejs:
     container_name: nodejs

@@ -1,5 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+// import axios from "axios";
+
+// if (window.location.origin === "http://localhost:3000") {
+//   axios.defaults.baseURL = "http://127.0.0.1:8000";
+// } else {
+//   axios.defaults.baseURL = window.location.origin;
+// }
 
 function App() {
   return (
@@ -21,5 +28,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

@@ -1,6 +1,3 @@
-# Ajouter des droits d'exécution (script)
-# chmod +x docker/backend/wsgi-entrypoint.sh
-
 #!/bin/sh
 until cd /app/backend/server
 do
@@ -28,3 +25,6 @@ gunicorn server.wsgi --bind 0.0.0.0:8000 --workers 4 --threads 4
 # Option 2:
 # run development server
 # DEBUG=True ./manage.py runserver 0.0.0.0:8000
+
+# Ajouter des droits d'exécution (script)
+# chmod +x docker/backend/wsgi-entrypoint.sh
