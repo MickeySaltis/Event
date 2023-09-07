@@ -1,5 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import React, {Component} from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./index.css";
+import Home from "./components/Home";
+import Login from "./components/Login";
+// --------------------------------
 // import axios from "axios";
 
 // if (window.location.origin === "http://localhost:3000") {
@@ -8,25 +13,20 @@ import './App.css';
 //   axios.defaults.baseURL = window.location.origin;
 // }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() 
+  {
+    return (
+      <div>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/login" element={<Login/>} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 

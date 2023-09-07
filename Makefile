@@ -21,6 +21,9 @@ new-project:
 go-python:
 	$(DOCKER) exec -it python sh	
 
+go-nodejs:
+	$(DOCKER) exec -it nodejs sh
+
 ### -- Dev -- ##
 build-dc-dev: 
 	$(DOCKER_COMPOSE) -f docker-compose-dev.yml build
@@ -52,6 +55,8 @@ pruneAll: ## Supprimer toutes les images
 ## —— 🔥 App ——
 
 ### -- Backend -- ##
+
+# NEW
 new-requirements:
 	$(DOCKER) exec -w /backend python touch requirements.txt
 
@@ -64,13 +69,22 @@ new-django:
 python.manage.py.runserver:
 	$(DOCKER) exec -w /backend/backend python python manage.py runserver
 
+# DEV
+sh-backend:
+	$(DOCKER) exec -it backend sh
 
 ### -- Frontend -- ##
+
+# NEW
 new-react:
 	$(DOCKER) exec -w /frontend nodejs npx create-react-app frontend
 
 npm.start:
 	$(DOCKER) exec -w /frontend/frontend nodejs npm start
+
+#DEV
+sh-nginx:
+	$(DOCKER) exec -it nginx sh
 
 
 ## —— 🛠️  Others ——
