@@ -18,6 +18,9 @@ FRONTEND = nodejs
 new-project:
 	$(DOCKER_COMPOSE) -f docker-compose-new.yml up --build
 
+np-up:
+	$(DOCKER_COMPOSE) -f docker-compose-new.yml up
+	
 go-python:
 	$(DOCKER) exec -it python sh	
 
